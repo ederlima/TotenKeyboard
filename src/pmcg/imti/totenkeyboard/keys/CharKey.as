@@ -74,7 +74,6 @@ package pmcg.imti.totenkeyboard.keys
 			this.x = keydata.positionX;
 			this.y = keydata.positionY;
 			this.addEventListener(MouseEvent.CLICK, keyClickHandler);
-			this.addEventListener(KeyEvent.KEY_PRESS, keyPressEventHandler);
 			_keyboard.addEventListener(StateChangeEvent.CHANGE, StateChangeEventHandler);
 			
 		}
@@ -139,10 +138,6 @@ package pmcg.imti.totenkeyboard.keys
 			_keyboard.dispatchEvent(new KeyEvent(KeyEvent.KEY_PRESS, this.keydata)); 
 		}
 		
-		private function keyPressEventHandler(event:KeyEvent):void 
-		{
-			trace('charkey - ' + event.keydata.state1);
-		}
 		private function createFront(keyData:KeyData)
 		{
 			front.embedFonts = true;

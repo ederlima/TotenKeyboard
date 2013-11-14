@@ -18,6 +18,10 @@ package pmcg.imti.totenkeyboard.objects
 		 * Adiciona uma nova linha
 		 */
 		public static const NEW_LINE:String = "new_line";
+		/**
+		 * Limpa todo o texto digitado
+		 */
+		public static const CLEAR:String = "clear";
 		
 		public function KeyBoardAction() 
 		{

@@ -2,15 +2,14 @@ package pmcg.imti.totenkeyboard
 {
 	import flash.display.MovieClip;
 	import flash.events.Event;
+	import flash.text.TextField;
+	import pmcg.imti.totenkeyboard.events.ControlEvent;
 	import pmcg.imti.totenkeyboard.events.KeyEvent;
 	import pmcg.imti.totenkeyboard.keys.CharKey;
 	import pmcg.imti.totenkeyboard.keys.IControlKey;
 	import pmcg.imti.totenkeyboard.keys.IStateKey;
-	import pmcg.imti.totenkeyboard.keys.StateKey;
-	import pmcg.imti.totenkeyboard.objects.KeyData;
-	import pmcg.imti.totenkeyboard.objects.KeyShape;
-	import pmcg.imti.totenkeyboard.objects.StateKeyData;
-	import pmcg.imti.totenkeyboard.events.ControlEvent;
+	import pmcg.imti.totenkeyboard.objects.KeyBoardAction;
+	import pmcg.imti.totenkeyboard.objects.KeyBoardMode;
 	
 	/**
 	 * ...
@@ -24,7 +23,8 @@ package pmcg.imti.totenkeyboard
 		private var _charKeys:Vector.<CharKey> = new Vector.<CharKey>;
 		private var _stateKeys:Vector.<IStateKey> = new Vector.<IStateKey>;
 		private var _controlKeys:Vector.<IControlKey> = new Vector.<IControlKey>;
-		private var _mode:String;
+		private var _mode:String = KeyBoardMode.TEXTFIELD;
+		private var _targetTextField:TextField;
 
 		public function TotenKeyBoard() 
 		{
@@ -78,7 +78,9 @@ package pmcg.imti.totenkeyboard
 			_instance.removeEventListener(Event.ADDED_TO_STAGE, initKeyBoard);
 			configureKeys();
 			_instance.addEventListener(KeyEvent.KEY_PRESS, keyPressHandler);
+			_instance.addEventListener(ControlEvent.CONTROL, controlEventHandler);
 		}
+		
 		
 		static private function configureKeys():void 
 		{
@@ -106,10 +108,69 @@ package pmcg.imti.totenkeyboard
 			}
 			
 		}
+		static private function controlEventHandler(event:ControlEvent):void 
+		{
+			
+			switch(event.action)
+			{
+				case KeyBoardAction.BACKSPACE :
+					switch(_instance.mode)
+					{
+						case KeyBoardMode.TEXTFIELD : 
+							_instance.targetTextField.text = _instance.targetTextField.text.substring(0, _instance.targetTextField.text.length - 1);
+							break;
+						case KeyBoardMode.JAVASCRIPT : 
+							
+							break;
+					}
+					break;
+				case KeyBoardAction.NEW_LINE : 
+					switch(_instance.mode)
+					{
+						case KeyBoardMode.TEXTFIELD : 
+							_instance.targetTextField.appendText("\n");
+							break;
+						case KeyBoardMode.JAVASCRIPT : 
+							
+							break;
+					}
+					break;
+				case KeyBoardAction.SPACE : 
+					switch(_instance.mode)
+					{
+						case KeyBoardMode.TEXTFIELD : 
+							_instance.targetTextField.appendText(" ");
+							break;
+						case KeyBoardMode.JAVASCRIPT : 
+							
+							break;
+					}
+					break;
+				case KeyBoardAction.CLEAR : 
+					switch(_instance.mode)
+					{
+						case KeyBoardMode.TEXTFIELD : 
+							_instance.targetTextField.text = "";
+							break;
+						case KeyBoardMode.JAVASCRIPT : 
+							
+							break;
+					}
+					break;
+			}//end switch
+		}
 		
 		static private function keyPressHandler(event:KeyEvent):void 
 		{
-			trace(event.keydata.currentValue);
+			switch(_instance.mode)
+			{
+				case KeyBoardMode.TEXTFIELD : 
+					_instance.targetTextField.appendText(event.keydata.currentValue);
+					
+					break;
+			}
+			_instance.parent.stage.focus = _instance.targetTextField;
+			_instance.targetTextField.setSelection(_instance.targetTextField.text.length,_instance.targetTextField.text.length)
 		}
 		/**
 		 * Conjunto de teclas alfanuméricas
@@ -154,10 +215,23 @@ package pmcg.imti.totenkeyboard
 		{
 			return _mode;
 		}
-		
+		/**
+		 * TextField (dinâmico) para receber a interação do teclado 
+		 * @see pmcg.imti.totenkeyboard.objects.KeyBoardMode
+		 */
 		public function set mode(value:String):void 
 		{
 			_mode = value;
+		}
+		
+		public function get targetTextField():TextField 
+		{
+			return _targetTextField;
+		}
+		
+		public function set targetTextField(value:TextField):void 
+		{
+			_targetTextField = value;
 		}
 
 		

@@ -1,6 +1,7 @@
 package pmcg.imti.totenkeyboard 
 {
 	import flash.display.MovieClip;
+	import flash.display.Stage;
 	import flash.events.Event;
 	import flash.text.TextField;
 	import pmcg.imti.totenkeyboard.events.ControlEvent;
@@ -25,6 +26,7 @@ package pmcg.imti.totenkeyboard
 		private var _controlKeys:Vector.<IControlKey> = new Vector.<IControlKey>;
 		private var _mode:String = KeyBoardMode.TEXTFIELD;
 		private var _targetTextField:TextField;
+		private var _stage:Stage;
 
 		public function TotenKeyBoard() 
 		{
@@ -108,6 +110,7 @@ package pmcg.imti.totenkeyboard
 			}
 			
 		}
+		//TODO: finalizar as funções executadas a cada clique de tecla de controle
 		static private function controlEventHandler(event:ControlEvent):void 
 		{
 			
@@ -158,8 +161,9 @@ package pmcg.imti.totenkeyboard
 					}
 					break;
 			}//end switch
+			_instance.focusText();
 		}
-		
+		//TODO: finalizar as funções executadas a cada clique de tecla de caractere
 		static private function keyPressHandler(event:KeyEvent):void 
 		{
 			switch(_instance.mode)
@@ -168,9 +172,19 @@ package pmcg.imti.totenkeyboard
 					_instance.targetTextField.appendText(event.keydata.currentValue);
 					
 					break;
+				case KeyBoardMode.JAVASCRIPT : 
+					
+					break;
 			}
-			_instance.parent.stage.focus = _instance.targetTextField;
-			_instance.targetTextField.setSelection(_instance.targetTextField.text.length,_instance.targetTextField.text.length)
+			_instance.focusText();
+		}
+		private function focusText():void
+		{
+			if (_instance.stageObject != null)
+			{
+				_instance.stageObject.focus = _instance.targetTextField;
+				_instance.targetTextField.setSelection(_instance.targetTextField.text.length, _instance.targetTextField.text.length)
+			}
 		}
 		/**
 		 * Conjunto de teclas alfanuméricas
@@ -232,6 +246,18 @@ package pmcg.imti.totenkeyboard
 		public function set targetTextField(value:TextField):void 
 		{
 			_targetTextField = value;
+		}
+		/**
+		 * Stage do filme (necessário para visualizar o cursor adequadamente na caixa de texto)
+		 */
+		public function get stageObject():Stage 
+		{
+			return _stage;
+		}
+		
+		public function set stageObject(value:Stage):void 
+		{
+			_stage = value;
 		}
 
 		

@@ -67,6 +67,7 @@ package pmcg.imti.totenkeyboard
 			//
 			
 			//
+			kb.stageObject = this.stage;
 			addChild(kb);
 		}
 		//helpers

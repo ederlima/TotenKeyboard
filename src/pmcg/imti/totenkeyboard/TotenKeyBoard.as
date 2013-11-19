@@ -27,6 +27,10 @@ package pmcg.imti.totenkeyboard
 		private var _mode:String = KeyBoardMode.TEXTFIELD;
 		private var _targetTextField:TextField;
 		private var _stage:Stage;
+		//js functions
+		private var _jsAppend:Function = null;
+		private var _jsSubstring:Function = null;
+		private var _jsClear:Function = null;
 
 		public function TotenKeyBoard() 
 		{
@@ -74,6 +78,27 @@ package pmcg.imti.totenkeyboard
 		public function addControlKey(key:IControlKey):void
 		{
 			_instance.controlKeys.push(key);
+		}
+		/**
+		 * Função que configura os callbacks do browser (TotenBrowser) para serem executados a partir da instância do teclado
+		 * @param	append Função que adiciona caracteres (usado para caracteres, espaço, novas linhas, recebe uma string como parâmetro)
+		 * @param	substring Função que apaga o último caractere (backspace/delete)
+		 * @param	clear Função que limpa completamente o campo
+		 */
+		public function jsCallBacks(append:Function = null, substring:Function = null, clear:Function = null)
+		{
+			if (append != null)
+			{
+				_jsAppend = append;
+			}
+			if (substring != null)
+			{
+				_jsSubstring = substring;
+			}
+			if (clear != null)
+			{
+				_jsClear = clear;
+			}
 		}
 		static private function initKeyBoard(event:Event):void 
 		{
@@ -123,7 +148,10 @@ package pmcg.imti.totenkeyboard
 							_instance.targetTextField.text = _instance.targetTextField.text.substring(0, _instance.targetTextField.text.length - 1);
 							break;
 						case KeyBoardMode.JAVASCRIPT : 
-							
+							if (_instance.jsSubstring !=null)
+							{
+								_instance.jsSubstring();
+							}
 							break;
 					}
 					break;
@@ -134,7 +162,10 @@ package pmcg.imti.totenkeyboard
 							_instance.targetTextField.appendText("\n");
 							break;
 						case KeyBoardMode.JAVASCRIPT : 
-							
+							if (_instance.jsAppend != null)
+							{
+								_instance.jsAppend("\n");
+							}
 							break;
 					}
 					break;
@@ -145,7 +176,10 @@ package pmcg.imti.totenkeyboard
 							_instance.targetTextField.appendText(" ");
 							break;
 						case KeyBoardMode.JAVASCRIPT : 
-							
+							if (_instance.jsAppend != null)
+							{
+								_instance.jsAppend(" ");
+							}
 							break;
 					}
 					break;
@@ -156,7 +190,10 @@ package pmcg.imti.totenkeyboard
 							_instance.targetTextField.text = "";
 							break;
 						case KeyBoardMode.JAVASCRIPT : 
-							
+							if (_instance.jsClear != null)
+							{
+								_instance.jsClear();
+							}
 							break;
 					}
 					break;
@@ -173,17 +210,23 @@ package pmcg.imti.totenkeyboard
 					
 					break;
 				case KeyBoardMode.JAVASCRIPT : 
-					
+					if (_instance.jsAppend != null)
+					{
+						_instance.jsAppend(event.keydata.currentValue);
+					}
 					break;
 			}
 			_instance.focusText();
 		}
 		private function focusText():void
 		{
-			if (_instance.stageObject != null)
+			if (_instance.mode == KeyBoardMode.TEXTFIELD)
 			{
-				_instance.stageObject.focus = _instance.targetTextField;
-				_instance.targetTextField.setSelection(_instance.targetTextField.text.length, _instance.targetTextField.text.length)
+				if (_instance.stageObject != null)
+				{
+					_instance.stageObject.focus = _instance.targetTextField;
+					_instance.targetTextField.setSelection(_instance.targetTextField.text.length, _instance.targetTextField.text.length)
+				}
 			}
 		}
 		/**
@@ -254,10 +297,46 @@ package pmcg.imti.totenkeyboard
 		{
 			return _stage;
 		}
-		
+
 		public function set stageObject(value:Stage):void 
 		{
 			_stage = value;
+		}
+		/**
+		 * Função que adiciona caracteres (apenas para uso com js)
+		 */
+		public function get jsAppend():Function 
+		{
+			return _jsAppend;
+		}
+		
+		public function set jsAppend(value:Function):void 
+		{
+			_jsAppend = value;
+		}
+		/**
+		 * Função delete/backspace (apenas para uso com js)
+		 */
+		public function get jsSubstring():Function 
+		{
+			return _jsSubstring;
+		}
+		
+		public function set jsSubstring(value:Function):void 
+		{
+			_jsSubstring = value;
+		}
+		/**
+		 * Função que limpa o campo (apenas para uso com js)
+		 */
+		public function get jsClear():Function 
+		{
+			return _jsClear;
+		}
+		
+		public function set jsClear(value:Function):void 
+		{
+			_jsClear = value;
 		}
 
 		

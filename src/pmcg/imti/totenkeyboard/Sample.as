@@ -30,19 +30,21 @@ package pmcg.imti.totenkeyboard
 	 */
 	public class Sample extends MovieClip 
 	{
-		private var kb:TotenKeyBoard;
+		private var keyboard:TotenKeyBoard;
 		private var xmlloader:URLLoader = new URLLoader();
+		private var keyboardinstance:TotenKeyBoard;
 
 		public function Sample() 
 		{
-			stage.align = StageAlign.TOP_LEFT;
-			stage.scaleMode = StageScaleMode.NO_SCALE;
-			kb = TotenKeyBoard.getInstance();
-			kb.mode = KeyBoardMode.TEXTFIELD;
-			kb.targetTextField = this.textarea;
+			//stage.align = StageAlign.TOP_LEFT;
+			//stage.scaleMode = StageScaleMode.NO_SCALE;
+			keyboard = TotenKeyBoard.getInstance();
+			keyboardinstance = TotenKeyBoard.getInstance();
+			keyboard.mode = KeyBoardMode.JAVASCRIPT;
 			xmlloader.addEventListener(Event.COMPLETE, xmlcompletehandler);
 			xmlloader.load(new URLRequest("keyboard.xml"));
 		}
+		
 		private function xmlcompletehandler(event:Event):void
 		{
 			var keys:XML = XML(event.target.data);
@@ -50,7 +52,7 @@ package pmcg.imti.totenkeyboard
 			for each(var key:XML in keylist)
 			{
 				var charkey:CharKey= new CharKey(new KeyData(key.state1, key.state2, key.state3, key.@posx, key.@posy, 60, 60, KeyShape[key.@keyshape],stringToBoolean(key.@hasthirdstate) ));
-				kb.charKeys.push(charkey);
+				keyboard.charKeys.push(charkey);
 			}
 			var shift:ShiftKey = new ShiftKey(new StateKeyData(KeyBoardState.STATE_2, 0, 140));
 			var symbols:SymbolsKey = new SymbolsKey(new StateKeyData(KeyBoardState.STATE_3, 0, 210));
@@ -58,17 +60,17 @@ package pmcg.imti.totenkeyboard
 			var clearall:ClearAllKey = new ClearAllKey(new ControlKeyData(KeyBoardAction.CLEAR, 0, 70)); 
 			var backspace:BackSpaceKey = new BackSpaceKey(new ControlKeyData(KeyBoardAction.BACKSPACE, 770, 0)); 760, 70
 			var newline:NewLineKey = new NewLineKey(new ControlKeyData(KeyBoardAction.NEW_LINE, 760, 70));
-			kb.addStateKey(shift);
-			kb.addStateKey(symbols);
-			kb.addControlKey(space);
-			kb.addControlKey(clearall);
-			kb.addControlKey(backspace);
-			kb.addControlKey(newline);
+			keyboard.addStateKey(shift);
+			keyboard.addStateKey(symbols);
+			keyboard.addControlKey(space);
+			keyboard.addControlKey(clearall);
+			keyboard.addControlKey(backspace);
+			keyboard.addControlKey(newline);
 			//
 			
 			//
-			kb.stageObject = this.stage;
-			addChild(kb);
+			keyboard.stageObject = this.stage;
+			addChild(keyboard);
 		}
 		//helpers
 		private function stringToBoolean(value:String):Boolean
@@ -84,6 +86,10 @@ package pmcg.imti.totenkeyboard
 			}
 			
 			return returnValue;
+		}
+		public function get keyboardInstance():TotenKeyBoard
+		{
+			return keyboardinstance;
 		}
 		
 	}

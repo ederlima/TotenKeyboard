@@ -6,11 +6,14 @@ package pmcg.imti.totenkeyboard
 	import flash.text.TextField;
 	import pmcg.imti.totenkeyboard.events.ControlEvent;
 	import pmcg.imti.totenkeyboard.events.KeyEvent;
+	import pmcg.imti.totenkeyboard.events.StateChangeEvent;
 	import pmcg.imti.totenkeyboard.keys.CharKey;
 	import pmcg.imti.totenkeyboard.keys.IControlKey;
+	import pmcg.imti.totenkeyboard.keys.IFunctionKey;
 	import pmcg.imti.totenkeyboard.keys.IStateKey;
 	import pmcg.imti.totenkeyboard.objects.KeyBoardAction;
 	import pmcg.imti.totenkeyboard.objects.KeyBoardMode;
+	import pmcg.imti.totenkeyboard.objects.KeyBoardState;
 	
 	/**
 	 * ...
@@ -24,6 +27,7 @@ package pmcg.imti.totenkeyboard
 		private var _charKeys:Vector.<CharKey> = new Vector.<CharKey>;
 		private var _stateKeys:Vector.<IStateKey> = new Vector.<IStateKey>;
 		private var _controlKeys:Vector.<IControlKey> = new Vector.<IControlKey>;
+		private var _functionsKey:Vector.<IFunctionKey> = new Vector.<IFunctionKey>;
 		private var _mode:String = KeyBoardMode.TEXTFIELD;
 		private var _targetTextField:TextField;
 		private var _stage:Stage;
@@ -38,7 +42,6 @@ package pmcg.imti.totenkeyboard
 			{
 				throw new Error("Singleton, utilize getInstance()");
 			}
-			//TODO: Criar funções para apagar, espaço, outros, e usar estas funções em eventos e argumentos das ctrlkeys
 		}
 		/**
 		 * Objeto TotenKeyBoard
@@ -54,6 +57,30 @@ package pmcg.imti.totenkeyboard
 				_instance.addEventListener(Event.ADDED_TO_STAGE, initKeyBoard);
 			}
 			return _instance;
+		}
+		/**
+		 * Mostra o teclado
+		 */
+		public function show():void
+		{
+			//_instance.visible = true;
+			_instance.dispatchEvent(new StateChangeEvent(StateChangeEvent.CHANGE, KeyBoardState.STATE_1));
+		}
+		/**
+		 * Esconde o teclado
+		 */
+		public function hide():void
+		{
+			//_instance.visible = false;
+			_instance.dispatchEvent(new StateChangeEvent(StateChangeEvent.CHANGE, KeyBoardState.STATE_1));
+		}
+		/**
+		 * Adiciona uma tecla de função ao teclado
+		 * @param	key
+		 */
+		public function addFunctionKey(key:IFunctionKey):void
+		{
+			functionsKey.push(key);
 		}
 		/**
 		 * Adiciona uma tecla alfanumérica ao teclado
@@ -133,9 +160,15 @@ package pmcg.imti.totenkeyboard
 					_instance.addChild(controlkey);
 				}
 			}
+			if (_instance.functionsKey.length > 0)
+			{
+				for each(var functionkey:* in _instance.functionsKey)
+				{
+					_instance.addChild(functionkey);
+				}
+			}
 			
 		}
-		//TODO: finalizar as funções executadas a cada clique de tecla de controle
 		static private function controlEventHandler(event:ControlEvent):void 
 		{
 			
@@ -200,7 +233,6 @@ package pmcg.imti.totenkeyboard
 			}//end switch
 			_instance.focusText();
 		}
-		//TODO: finalizar as funções executadas a cada clique de tecla de caractere
 		static private function keyPressHandler(event:KeyEvent):void 
 		{
 			switch(_instance.mode)
@@ -252,6 +284,19 @@ package pmcg.imti.totenkeyboard
 		public function set stateKeys(value:Vector.<IStateKey>):void 
 		{
 			_stateKeys = value;
+		}
+		/**
+		 * Teclas de função do teclado
+		 * @return
+		 */
+		public function get functionsKey():Vector.<IFunctionKey> 
+		{
+			return _functionsKey;
+		}
+		
+		public function set functionsKey(value:Vector.<IFunctionKey>):void 
+		{
+			_functionsKey = value;
 		}
 		/**
 		 * Conjunto de teclas de funções
@@ -338,6 +383,7 @@ package pmcg.imti.totenkeyboard
 		{
 			_jsClear = value;
 		}
+		
 
 		
 	}

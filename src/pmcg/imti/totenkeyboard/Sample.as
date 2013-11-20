@@ -11,11 +11,14 @@ package pmcg.imti.totenkeyboard
 	import pmcg.imti.totenkeyboard.keys.BackSpaceKey;
 	import pmcg.imti.totenkeyboard.keys.CharKey;
 	import pmcg.imti.totenkeyboard.keys.ClearAllKey;
+	import pmcg.imti.totenkeyboard.keys.CloseKey;
+	import pmcg.imti.totenkeyboard.keys.FunctionKey;
 	import pmcg.imti.totenkeyboard.keys.NewLineKey;
 	import pmcg.imti.totenkeyboard.keys.ShiftKey;
 	import pmcg.imti.totenkeyboard.keys.SpaceKey;
 	import pmcg.imti.totenkeyboard.keys.SymbolsKey;
 	import pmcg.imti.totenkeyboard.objects.ControlKeyData;
+	import pmcg.imti.totenkeyboard.objects.FunctionKeyData;
 	import pmcg.imti.totenkeyboard.objects.KeyBoardState;
 	import pmcg.imti.totenkeyboard.objects.KeyData;
 	import pmcg.imti.totenkeyboard.objects.StateKeyData;
@@ -60,6 +63,8 @@ package pmcg.imti.totenkeyboard
 			var clearall:ClearAllKey = new ClearAllKey(new ControlKeyData(KeyBoardAction.CLEAR, 0, 70)); 
 			var backspace:BackSpaceKey = new BackSpaceKey(new ControlKeyData(KeyBoardAction.BACKSPACE, 770, 0)); 760, 70
 			var newline:NewLineKey = new NewLineKey(new ControlKeyData(KeyBoardAction.NEW_LINE, 760, 70));
+			var closebutton:CloseKey = new CloseKey(new FunctionKeyData(function() { trace('close button') }, 760, 210));
+			keyboard.addFunctionKey(closebutton);
 			keyboard.addStateKey(shift);
 			keyboard.addStateKey(symbols);
 			keyboard.addControlKey(space);

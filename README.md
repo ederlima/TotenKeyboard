@@ -17,9 +17,15 @@ import pmcg.imti.totenkeyboard.keys.*;
 import pmcg.imti.totenkeyboard.objects.*;
 
 var keyboard:TotenKeyBoard = new TotenKeyBoard();
+
 var a_key:CharKey = new CharKey(new CharKeyData("a", "A", "$"));
+
 keyboard.addKey(a_key); //or 
+
 //keyboard.charKeys.push(a_key);
+
 keyboard.stageObject = this.stage; //or mainStage from yout app/movie - option for focus 
+
 keyboard.targetTextField = yourtextfieldInstance;
+
 addChild(keyboard);

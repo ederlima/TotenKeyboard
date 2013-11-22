@@ -1,4 +1,4 @@
-package pmcg.imti.totenkeyboard 
+package  
 {
 	import flash.display.MovieClip;
 	import flash.display.Stage;

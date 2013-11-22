@@ -1,168 +1,168 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <data>
 	<charkeys>
-		<charkey hasthirdstate="false" posx="0" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="false" posx="0" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>'</state1>
 			<state2>"</state2>
 			<state3></state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="70" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="60" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>q</state1>
 			<state2>Q</state2>
 			<state3>*</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="140" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="120" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>w</state1>
 			<state2>W</state2>
 			<state3>@</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="210" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="180" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>e</state1>
 			<state2>E</state2>
 			<state3>#</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="280" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="240" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>r</state1>
 			<state2>R</state2>
 			<state3>1</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="350" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="300" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>t</state1>
 			<state2>T</state2>
 			<state3>2</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="420" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="360" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>y</state1>
 			<state2>Y</state2>
 			<state3>3</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="490" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="420" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>u</state1>
 			<state2>U</state2>
 			<state3>_</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="560" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="480" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>i</state1>
 			<state2>I</state2>
 			<state3>%</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="630" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="540" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>o</state1>
 			<state2>O</state2>
 			<state3>(</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="700" posy="0" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="600" posy="0" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>p</state1>
 			<state2>P</state2>
 			<state3>)</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="90" posy="70" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="90" posy="60" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>a</state1>
 			<state2>A</state2>
 			<state3><![CDATA[&]]></state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="160" posy="70" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="150" posy="60" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>s</state1>
 			<state2>S</state2>
 			<state3>$</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="230" posy="70" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="210" posy="60" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>d</state1>
 			<state2>D</state2>
 			<state3>4</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="300" posy="70" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="270" posy="60" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>f</state1>
 			<state2>F</state2>
 			<state3>5</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="370" posy="70" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="330" posy="60" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>g</state1>
 			<state2>G</state2>
 			<state3>6</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="440" posy="70" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="390" posy="60" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>h</state1>
 			<state2>H</state2>
 			<state3>{</state3>
 			<!--<state3><![CDATA[<]]></state3>-->
 		</charkey>
-		<charkey hasthirdstate="true" posx="510" posy="70" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="450" posy="60" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>j</state1>
 			<state2>J</state2>
 			<state3>}</state3>
 			<!--<state3><![CDATA[>]]></state3>-->
 		</charkey>
-		<charkey hasthirdstate="true" posx="580" posy="70" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="510" posy="60" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>k</state1>
 			<state2>K</state2>
 			<state3>[</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="650" posy="70" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="570" posy="60" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>l</state1>
 			<state2>L</state2>
 			<state3>]</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="720" posy="70" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="630" posy="60" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>ç</state1>
 			<state2>Ç</state2>
 			<state3>+</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="130" posy="140" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="130" posy="120" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>z</state1>
 			<state2>Z</state2>
 			<state3>!</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="200" posy="140" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="190" posy="120" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>x</state1>
 			<state2>X</state2>
 			<state3>?</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="270" posy="140" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="250" posy="120" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>c</state1>
 			<state2>C</state2>
 			<state3>7</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="340" posy="140" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="310" posy="120" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>v</state1>
 			<state2>V</state2>
 			<state3>8</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="410" posy="140" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="370" posy="120" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>b</state1>
 			<state2>B</state2>
 			<state3>9</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="480" posy="140" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="430" posy="120" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>n</state1>
 			<state2>N</state2>
 			<state3>0</state3>
 		</charkey>
-		<charkey hasthirdstate="true" posx="550" posy="140" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="true" posx="490" posy="120" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>m</state1>
 			<state2>M</state2>
 			<state3>|</state3>
 		</charkey>
-		<charkey hasthirdstate="false" posx="620" posy="140" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="false" posx="550" posy="120" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>,</state1>
 			<state2><![CDATA[<]]></state2>
 			<state3></state3>
 		</charkey>
-		<charkey hasthirdstate="false" posx="690" posy="140" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="false" posx="610" posy="120" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>.</state1>
 			<state2><![CDATA[>]]></state2>
 			<state3></state3>
 		</charkey>
-		<charkey hasthirdstate="false" posx="130" posy="210" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="false" posx="130" posy="180" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>/</state1>
 			<state2>|</state2>
 			<state3></state3>
 		</charkey>
-		<charkey hasthirdstate="false" posx="620" posy="210" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="false" posx="550" posy="180" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>;</state1>
 			<state2>:</state2>
 		</charkey>
-		<charkey hasthirdstate="false" posx="690" posy="210" width="60" height="60" keyshape="SQUARE_ROUNDED">
+		<charkey hasthirdstate="false" posx="610" posy="180" width="50" height="50" keyshape="SQUARE_ROUNDED">
 			<state1>-</state1>
 			<state2>=</state2>
 			<state3></state3>

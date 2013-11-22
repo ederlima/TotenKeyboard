@@ -60,7 +60,6 @@ package pmcg.imti.totenkeyboard.keys
 			body.graphics.endFill();
 			this.addChild(body);
 			
-			this.buttonMode = true;
 			
 			defaultFormat.textIndent = 0;
 			defaultFormat.color = 0xFFFFFF;
@@ -140,8 +139,9 @@ package pmcg.imti.totenkeyboard.keys
 		
 		private function createFront(keyData:KeyData)
 		{
-			front.embedFonts = true;
+			
 			front.antiAliasType = AntiAliasType.ADVANCED;
+			front.embedFonts = true;
 			body.addChild(front); 
 			front.width = keyData.width;
 			front.height = keyData.height;
@@ -182,6 +182,7 @@ package pmcg.imti.totenkeyboard.keys
 			defaultFlow.hostFormat = defaultFormat;
 			keydata.hasThirdState ? back.text = keydata.state3 : back.text = keydata.state2;
 		}
+		
 		/**
 		 * KeyData dados da tecla
 		 */

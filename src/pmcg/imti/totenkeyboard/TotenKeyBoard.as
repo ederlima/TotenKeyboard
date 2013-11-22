@@ -27,7 +27,7 @@ package pmcg.imti.totenkeyboard
 		private var _charKeys:Vector.<CharKey> = new Vector.<CharKey>;
 		private var _stateKeys:Vector.<IStateKey> = new Vector.<IStateKey>;
 		private var _controlKeys:Vector.<IControlKey> = new Vector.<IControlKey>;
-		private var _functionsKey:Vector.<IFunctionKey> = new Vector.<IFunctionKey>;
+		private var _functionsKeys:Vector.<IFunctionKey> = new Vector.<IFunctionKey>;
 		private var _mode:String = KeyBoardMode.TEXTFIELD;
 		private var _targetTextField:TextField;
 		private var _stage:Stage;
@@ -80,7 +80,7 @@ package pmcg.imti.totenkeyboard
 		 */
 		public function addFunctionKey(key:IFunctionKey):void
 		{
-			functionsKey.push(key);
+			_instance.functionsKeys.push(key);
 		}
 		/**
 		 * Adiciona uma tecla alfanumérica ao teclado
@@ -160,14 +160,13 @@ package pmcg.imti.totenkeyboard
 					_instance.addChild(controlkey);
 				}
 			}
-			if (_instance.functionsKey.length > 0)
+			if (_instance.functionsKeys.length > 0)
 			{
-				for each(var functionkey:* in _instance.functionsKey)
+				for each(var functionkey:* in _instance.functionsKeys)
 				{
 					_instance.addChild(functionkey);
 				}
 			}
-			
 		}
 		static private function controlEventHandler(event:ControlEvent):void 
 		{
@@ -289,14 +288,14 @@ package pmcg.imti.totenkeyboard
 		 * Teclas de função do teclado
 		 * @return
 		 */
-		public function get functionsKey():Vector.<IFunctionKey> 
+		public function get functionsKeys():Vector.<IFunctionKey> 
 		{
-			return _functionsKey;
+			return _functionsKeys;
 		}
 		
-		public function set functionsKey(value:Vector.<IFunctionKey>):void 
+		public function set functionsKeys(value:Vector.<IFunctionKey>):void 
 		{
-			_functionsKey = value;
+			_functionsKeys = value;
 		}
 		/**
 		 * Conjunto de teclas de funções

@@ -33,20 +33,25 @@ package pmcg.imti.totenkeyboard
 	 * ...
 	 * @author Eder Lima - IMTI
 	 */
-	public class Sample extends MovieClip 
+	public class SampleTextField extends MovieClip 
 	{
 		private var keyboard:TotenKeyBoard;
 		private var xmlloader:URLLoader = new URLLoader();
 		private var keyboardinstance:TotenKeyBoard;
 		private var _mainStage:Stage;
 
-		public function Sample() 
+		public function SampleTextField() 
 		{
 			//stage.align = StageAlign.TOP_LEFT;
 			//stage.scaleMode = StageScaleMode.NO_SCALE;
 			keyboard = TotenKeyBoard.getInstance();
 			keyboardinstance = TotenKeyBoard.getInstance();
-			keyboard.mode = KeyBoardMode.JAVASCRIPT;
+			//define que o teclado vai utilizar um textfield
+			keyboard.mode = KeyBoardMode.TEXTFIELD;
+			//identifica o textfield
+			keyboard.targetTextField = this.textarea;
+			//informa o stage (pra trabalhar com o foco sobre o textfield)
+			keyboard.stageObject = this.stage;
 			xmlloader.addEventListener(Event.COMPLETE, xmlcompletehandler);
 			xmlloader.load(new URLRequest("keyboard.xml"));
 			

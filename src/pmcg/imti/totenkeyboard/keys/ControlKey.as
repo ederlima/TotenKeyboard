@@ -39,7 +39,6 @@ package pmcg.imti.totenkeyboard.keys
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			this.mouseChildren = false;
-			this.buttonMode = true;
 			_keyboard = TotenKeyBoard.getInstance();
 			this.addEventListener(MouseEvent.CLICK, clickHandler);
 		}

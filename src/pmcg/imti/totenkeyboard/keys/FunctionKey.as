@@ -17,7 +17,6 @@ package pmcg.imti.totenkeyboard.keys
 		public function FunctionKey(functionkeydata:FunctionKeyData = null) 
 		{
 			addEventListener(Event.ADDED_TO_STAGE, init);
-			this.buttonMode = true;
 			this.mouseChildren = false;
 			if (functionkeydata != null)
 			{

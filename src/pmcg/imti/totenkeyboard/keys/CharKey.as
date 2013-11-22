@@ -16,6 +16,8 @@ package pmcg.imti.totenkeyboard.keys
 	import pmcg.imti.totenkeyboard.objects.KeyData;
 	import pmcg.imti.totenkeyboard.objects.KeyShape;
 	import pmcg.imti.totenkeyboard.TotenKeyBoard;
+	import flash.utils.getDefinitionByName;
+	
 
 	/**
 	 * ...
@@ -28,7 +30,9 @@ package pmcg.imti.totenkeyboard.keys
 		private var defaultFormat:TextLayoutFormat = new TextLayoutFormat();
 		private var defaultFlow:TextFlow;
 		
-		private var myfont:Font = new Segoe();
+		//private var myfont:Font = new Segoe();
+		private var myfont:Font;
+		private var MyFontClass:Class;
 		
 		private var body:Sprite = new Sprite();
 		private var _keydata:KeyData;
@@ -43,6 +47,10 @@ package pmcg.imti.totenkeyboard.keys
 			_currentValue = keyData.state1;
 			keydata.currentValue = keyData.state1;
 			body.graphics.beginFill(keyData.bgcolor, 1);
+			
+			MyFontClass = getDefinitionByName(keydata.font) as Class;
+			myfont = new MyFontClass();
+						
 			switch(keydata.keyshape)
 			{
 				case KeyShape.SQUARE : 
@@ -59,6 +67,7 @@ package pmcg.imti.totenkeyboard.keys
 			}
 			body.graphics.endFill();
 			this.addChild(body);
+			
 			
 			
 			defaultFormat.textIndent = 0;
@@ -148,7 +157,7 @@ package pmcg.imti.totenkeyboard.keys
 			front.selectable = false;
 			
 			defaultFormat.fontWeight = "normal";
-			defaultFormat.fontSize = 32;
+			defaultFormat.fontSize = Math.ceil(keydata.height / 2);
 
 			defaultFlow = front.textFlow;
 			defaultFlow.hostFormat = defaultFormat;
@@ -159,23 +168,23 @@ package pmcg.imti.totenkeyboard.keys
 			back.embedFonts = true;
 			back.antiAliasType = AntiAliasType.ADVANCED;
 			body.addChild(back); 
-			back.width = 20;
-			back.height = 20;
+			back.width = Math.ceil(keydata.width*0.40);
+			back.height = Math.ceil(keydata.height*0.40);
 			switch(keyData.keyshape)
 			{
 				case KeyShape.SQUARE : 
-					back.x = keyData.width - 20;
+					back.x = keyData.width - Math.ceil(keydata.width*0.40);
 					break;
 				case KeyShape.DISC : 
-					back.x = keyData.width - 25;
+					back.x = keyData.width - Math.ceil(keydata.width*0.50);
 					back.y = 5;
 					break;
 				default : 
-					back.x = keyData.width - 20;
+					back.x = keyData.width - Math.ceil(keydata.width*0.40);
 			}
 			back.selectable = false;
 			
-			defaultFormat.fontSize = 18;
+			defaultFormat.fontSize = Math.ceil(keydata.height*0.32);
 			defaultFormat.fontWeight = "normal";
 
 			defaultFlow = back.textFlow;

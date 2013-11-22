@@ -76,7 +76,7 @@ package
 			var keylist:XMLList = new XMLList(keys.charkeys.charkey);
 			for each(var key:XML in keylist)
 			{
-				var charkey:CharKey= new CharKey(new KeyData(key.state1, key.state2, key.state3, key.@posx, key.@posy, 50, 50, KeyShape[key.@keyshape],stringToBoolean(key.@hasthirdstate) ));
+				var charkey:CharKey= new CharKey(new KeyData(key.state1, key.state2, key.state3, key.@posx, key.@posy, key.@width, key.@height, KeyShape[key.@keyshape],stringToBoolean(key.@hasthirdstate), "Segoe", 0x2494FF, 0xFFFFFF ));
 				keyboard.charKeys.push(charkey);
 			}
 			var shift:ShiftKey = new ShiftKey(new StateKeyData(KeyBoardState.STATE_2, 0, 120));

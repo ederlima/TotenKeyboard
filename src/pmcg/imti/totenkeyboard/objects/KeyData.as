@@ -20,6 +20,7 @@ package pmcg.imti.totenkeyboard.objects
 		private var _keyshape:String;
 		private var _currentValue:String;
 		private var _hasThirdState:Boolean = true;
+		private var _font:String;
 		
 		/**
 		 * Cria uma nova tecla de caracetere para o teclado
@@ -36,7 +37,21 @@ package pmcg.imti.totenkeyboard.objects
 		 * @param	textColor Cor do texto
 		 * @param	filters Filtros (não utilizado)
 		 */
-		public function KeyData(state1:String = "", state2:String = "", state3:String = "", posX:int = 0, posY:int = 0, width:int = 60, height:int = 60, keyShape:String = "square", hasThirdState:Boolean = true, bgColor:uint = 0x2494FF, textColor:uint = 0xFFFFFF, filters:Array = null ) 
+		public function KeyData(	
+					state1:String = "", 
+					state2:String = "", 
+					state3:String = "", 
+					posX:int = 0, 
+					posY:int = 0, 
+					width:int = 60, 
+					height:int = 60, 
+					keyShape:String = "square", 
+					hasThirdState:Boolean = true, 
+					font:String = "Arial",
+					bgColor:uint = 0x2494FF, 
+					textColor:uint = 0xFFFFFF, 
+					filters:Array = null 
+			) 
 		{
 			this.state1 = state1;
 			this.state2 = state2;
@@ -49,6 +64,7 @@ package pmcg.imti.totenkeyboard.objects
 			this.bgcolor = bgColor;
 			this.textcolor = textColor;
 			this.keyshape = keyShape;
+			this.font = font;
 			this.hasThirdState = hasThirdState;
 		}
 		/**
@@ -206,6 +222,19 @@ package pmcg.imti.totenkeyboard.objects
 		public function set hasThirdState(value:Boolean):void 
 		{
 			_hasThirdState = value;
+		}
+		/**
+		 * Fonte de texto (Lembre-se de incluir a fonte na biblioteca)
+		 * Insira o nome exato do objeto/linkage, a fonte é instanciada através do método getDefinitionByName(linkage)
+		 */
+		public function get font():String 
+		{
+			return _font;
+		}
+		
+		public function set font(value:String):void 
+		{
+			_font = value;
 		}
 		
 	}

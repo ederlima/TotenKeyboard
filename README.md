@@ -10,12 +10,22 @@ Capacidade de trabalhar com textfield dentro do próprio arquivo ou integração
 
 Exemplos em javascript ainda em construção.
 
-Observação:
+Modo de usar: //how to use
 
-A classe das teclas CharKey ainda precisa de modificação, pois está usando textformat dentro da classe
-sem opção de informar como parâmetro.
+import pmcg.imti.totenkeyboard.*;
+import pmcg.imti.totenkeyboard.keys.*;
+import pmcg.imti.totenkeyboard.objects.*;
 
-Em processo de alteração.
+var keyboard:TotenKeyBoard = new TotenKeyBoard();
 
-- Utiliza TextLayoutFrameWork para as teclas
-- Necessita inclusão da fonte na biblioteca
+var a_key:CharKey = new CharKey(new CharKeyData("a", "A", "$"));
+
+keyboard.addKey(a_key); //or 
+
+//keyboard.charKeys.push(a_key);
+
+keyboard.stageObject = this.stage; //or mainStage from yout app/movie - option for focus 
+
+keyboard.targetTextField = yourtextfieldInstance;
+
+addChild(keyboard);

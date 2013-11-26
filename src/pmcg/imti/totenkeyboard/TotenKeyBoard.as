@@ -16,7 +16,7 @@ package pmcg.imti.totenkeyboard
 	import pmcg.imti.totenkeyboard.objects.KeyBoardState;
 	
 	/**
-	 * ...
+	 * 
 	 * @author Eder Lima - IMTI
 	 */
 	public class TotenKeyBoard extends MovieClip 
@@ -112,7 +112,7 @@ package pmcg.imti.totenkeyboard
 		 * @param	substring Função que apaga o último caractere (backspace/delete)
 		 * @param	clear Função que limpa completamente o campo
 		 */
-		public function jsCallBacks(append:Function = null, substring:Function = null, clear:Function = null)
+		public function jsCallBacks(append:Function = null, substring:Function = null, clear:Function = null):void
 		{
 			if (append != null)
 			{

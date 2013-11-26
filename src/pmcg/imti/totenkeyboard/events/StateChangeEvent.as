@@ -1,7 +1,6 @@
 package pmcg.imti.totenkeyboard.events 
 {
 	import flash.events.Event;
-	import pmcg.imti.totenkeyboard.objects.KeyBoardState;
 	
 	/**
 	 * ...

@@ -1,6 +1,5 @@
 package pmcg.imti.totenkeyboard.objects 
 {
-	import pmcg.imti.totenkeyboard.objects.KeyBoardState;
 	/**
 	 * ...
 	 * @author Eder Lima - IMTI

@@ -92,7 +92,7 @@ package pmcg.imti.totenkeyboard.objects
 			_state2 = value;
 		}
 		/**
-		 * Terceiro estado (símbolos) da tecla (ex: '&')
+		 * Terceiro estado (símbolos) da tecla (ex: '&amp;')
 		 */
 		public function get state3():String 
 		{

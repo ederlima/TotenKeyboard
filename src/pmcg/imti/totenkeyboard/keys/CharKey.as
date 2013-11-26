@@ -25,8 +25,11 @@ package pmcg.imti.totenkeyboard.keys
 	 */
 	public class CharKey extends MovieClip 
 	{
+		//private var front:*;// = new TLFTextField();
 		private var front:TLFTextField = new TLFTextField();
+		//private var back:*//TLFTextField = new TLFTextField();
 		private var back:TLFTextField = new TLFTextField();
+		
 		private var defaultFormat:TextLayoutFormat = new TextLayoutFormat();
 		private var defaultFlow:TextFlow;
 		
@@ -146,7 +149,7 @@ package pmcg.imti.totenkeyboard.keys
 			_keyboard.dispatchEvent(new KeyEvent(KeyEvent.KEY_PRESS, this.keydata)); 
 		}
 		
-		private function createFront(keyData:KeyData)
+		private function createFront(keyData:KeyData):void
 		{
 			
 			front.antiAliasType = AntiAliasType.ADVANCED;
@@ -163,7 +166,7 @@ package pmcg.imti.totenkeyboard.keys
 			defaultFlow.hostFormat = defaultFormat;
 			front.text = keyData.state1;
 		}
-		private function createBack(keyData:KeyData)
+		private function createBack(keyData:KeyData):void
 		{
 			back.embedFonts = true;
 			back.antiAliasType = AntiAliasType.ADVANCED;

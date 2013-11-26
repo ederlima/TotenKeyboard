@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<docProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <pageTitle>TotenKeyBoard - Documentação IMTI</pageTitle>
+  <classPaths>D:\IMTI\Toten\TotenKeyboard\src\pmcg\imti\totenkeyboard;D:\IMTI\Toten\TotenKeyboard\src\pmcg\imti\totenkeyboard\events;D:\IMTI\Toten\TotenKeyboard\src\pmcg\imti\totenkeyboard\keys;D:\IMTI\Toten\TotenKeyboard\src\pmcg\imti\totenkeyboard\objects</classPaths>
+  <sourcesList />
+  <outputDirectory>D:\IMTI\Toten\TotenKeyboard\docs</outputDirectory>
+  <activeCompiler>1</activeCompiler>
+  <extraOptions />
+</docProject>

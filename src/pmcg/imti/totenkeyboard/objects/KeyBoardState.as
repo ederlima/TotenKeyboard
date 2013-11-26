@@ -18,6 +18,13 @@ package pmcg.imti.totenkeyboard.objects
 		 * Estado do teclado: Símbolos
 		 */
 		public static const STATE_3:String = "state3";
+		/**
+		 * 
+		 */
+		public function KeyBoardState()
+		{
+			
+		}
 		
 	}
 
